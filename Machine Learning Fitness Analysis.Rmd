@@ -118,7 +118,7 @@ for(i in 1:10) {
 
 The confusion matrix for predictions on cross validation folds is given below.
 
-```{r}
+```{r cache=TRUE}
 conf_mat <- confusionMatrix(table(preds, obs))
 conf_mat$table
 ```
@@ -130,4 +130,3 @@ Finally, we train the random forest with whole dataset so that the classifier ca
 ```{r cache=TRUE}
 model <- randomForest(classe ~ ., data=train_data)
 ```
-
