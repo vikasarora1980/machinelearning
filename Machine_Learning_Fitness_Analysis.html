@@ -182,6 +182,17 @@ conf_mat$table</code></pre>
 <p>Finally, we train the random forest with whole dataset so that the classifier can be used to predict the class of an action, given the set of activity measurements.</p>
 <pre class="r"><code>model &lt;- randomForest(classe ~ ., data=train_data)</code></pre>
 </div>
+<div id="function-to-generate-files-with-predictions-to-submit-for-assignment" class="section level2">
+<h2>Function to generate files with predictions to submit for assignment</h2>
+<pre class="r"><code>pml_write_files = function(x){
+  n = length(x)
+  for(i in 1:n){
+    filename = paste0(&quot;problem_id_&quot;,i,&quot;.txt&quot;)
+    write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+  }
+}</code></pre>
+<p>pml_write_files(predictionsB2)</p>
+</div>
 
 
 </div>

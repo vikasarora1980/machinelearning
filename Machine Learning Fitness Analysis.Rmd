@@ -130,3 +130,16 @@ Finally, we train the random forest with whole dataset so that the classifier ca
 ```{r cache=TRUE}
 model <- randomForest(classe ~ ., data=train_data)
 ```
+
+## Function to generate files with predictions to submit for assignment
+
+```{r }
+pml_write_files = function(x){
+  n = length(x)
+  for(i in 1:n){
+    filename = paste0("problem_id_",i,".txt")
+    write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+  }
+}
+```
+pml_write_files(predictionsB2)
